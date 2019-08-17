@@ -2,11 +2,12 @@
 @{
     ViewData["Title"] = "AddRecord";
 }
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
-
 
 
 
@@ -55,8 +56,36 @@
 
 
         });
+
+          var particularTags = [
+              "Fairprice",
+              "Food",
+              "Pomelo",
+              "Mcdo",
+              "Drinks",
+        ];
+        $("#Particular").autocomplete({
+            source: particularTags
+        });
+
+
+          var categoryTags = [
+            "Food/Grocery",
+              "Clothing",
+              "Entertainment",
+              "Transportation",
+              "Electronics",
+              "Insurance",
+              "PUB"
+        ];
+        $("#Category").autocomplete({
+            source: categoryTags
+        });
+
+
     });
 </script>
+
 <h1>Expenses</h1>
 
 <table class="table">
@@ -92,23 +121,17 @@
                 </div>
             </td>
             <td>
-                <div class="form-group">
+            <div class="form-group">
 
-                    <input asp-for="Particular" class="form-control" />
-                    <span asp-validation-for="Particular" class="text-danger"></span>
-                </div>
+                <input asp-for="Particular" class="form-control" />
+                <span asp-validation-for="Particular" class="text-danger"></span>
+            </div>
+ 
             </td>
             <td>
                 <div class="form-group">
 
-                    <select asp-for="Category" class="form-control" />
-                    <option value="Food/Grocery">Food/Grocery</option>
-                    <option value="Clothing">Clothing</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Transportation">Transportation</option>
-                    <option value="Travel">Travel</option>
-                    <option value="Insurance">Insurance</option>
-                    <option value="Electronics">Electronics</option>
+                    <input asp-for="Category" class="form-control" />
                     <span asp-validation-for="Category" class="text-danger"></span>
                 </div>
             </td>
